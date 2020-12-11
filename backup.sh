@@ -1,5 +1,4 @@
 #!/bin/sh
-
 #########################################################
 # Script to do rsync backups
 # Adapted from script found on the rsync.samba.org
