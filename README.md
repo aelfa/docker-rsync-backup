@@ -12,7 +12,7 @@ Basic backup of `/home` to `/mnt/backup_drive`
       -env BACKUP_HOLD=15 \
       -env SERVER_ID=docker \
       -env RSYNC_COMPRESS_LEVEL=1 \
-      mrdoob/rsyncbackup
+      mrdoob/docker-backup
 
 
 For full used all ENVS 
@@ -30,7 +30,7 @@ For full used all ENVS
       -env DISCORD_WEBHOOK_URL="" \
       -env DISCORD_ICON_OVERRIDE="https://i.imgur.com/KorF8zC.png" \
       -env DISCORD_NAME_OVERRIDE="BACKUP" \
-      mrdoob/rsyncbackup
+      mrdoob/docker-backup
 
 
 The container can then be stopped with `docker kill rsync-backup`.
@@ -125,4 +125,4 @@ in the end this means that there could be updates daily to weekly, as well as po
 
 # Support
 
-Add a [GitHube Issuses](https://github.com/doob187/docker-rsync-backup/issues).
+Add a [GitHube Issuses](https://github.com/doob187/docker-backup/issues).
