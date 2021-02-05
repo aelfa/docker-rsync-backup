@@ -28,7 +28,7 @@
       set_fact:
         amg_volumes:
           - '/opt/appdata/:/home'
-          - '/mnt/backup:/backup'
+          - '/opt/backup:/backup'
           - '/opt/appdata/{{amg_role}}/rclone:/rclone'
           - '/opt/appdata/{{amg_role}}/log:/log'
 
@@ -46,7 +46,7 @@
     - name: 'Create {{amg_role}} dir folder'
       file: "path={{ item }} state=directory mode=0775 owner=1000 group=1000 recurse=yes"
       with_items:
-       - '/mnt/backup'
+       - '/opt/backup'
        - '/opt/appdata/{{amg_role}}'
        - '/opt/appdata/{{amg_role}}/rclone'
        - '/opt/appdata/{{amg_role}}/log'
