@@ -67,8 +67,8 @@
       copy:
         src: /opt/appdata/plexguide/rclone.conf 
         dest: /opt/appdata/{{amg_role}}/rclone/rclone.conf
-        owner: 1000
-        group: 1000
+        owner: '1000'
+        group: '1000'
         mode: '0755'
       ignore_errors: yes
 
