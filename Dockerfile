@@ -26,9 +26,9 @@ RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community/ >> /etc/apk/reposi
         curl libxml2-utils tree pigz tzdata openntpd grep
 
 RUN \
-  curl -O https://downloads.rclone.org/v1.52.0/rclone-v1.52.0-linux-amd64.zip && \
-  unzip -q rclone-v1.52.0-linux-amd64.zip && \
-  rm -f rclone-v1.52.0-linux-amd64.zip && \
+  curl -O https://downloads.rclone.org/rclone-current-linux-amd64.zip && \
+  unzip -q rclone-current-linux-amd64.zip && \
+  rm -f rclone-current-linux-amd64.zip && \
   cd rclone-*-linux-amd64 && \
   cp rclone /usr/bin/
 
