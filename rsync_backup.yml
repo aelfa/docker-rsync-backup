@@ -14,7 +14,7 @@
     - name: 'Set Known Facts'
       set_fact:
         amg_role: 'rsync-backup'
-        image: 'mrdoob/docker-backup'
+        image: 'ghcr.io/doob187/docker-backup:latest'
 
     - name: 'Register TimeZone'
       shell: 'cat /etc/timezone'
@@ -35,7 +35,7 @@
     - name: 'Setting {{amg_role}} ENV'
       set_fact:
         amg_env:
-          CRON_TIME : '0 1 * * *'
+          CRON_TIME : '0 4 * * *'
           CONTAINER_TIMEZONE: '{{tz.stdout}}'
           BACKUP_HOLD: '15'
           SERVER_ID: '{{serverid.stdout}}'
