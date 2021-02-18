@@ -77,7 +77,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASS }}
-          repository: ${{ secrets.DOCKER_USER }}/${REPO}
+          repository: ${{ secrets.DOCKER_USER }}/${{ CI_REPOSITORY_NAME }}
           readme-filepath: ./README.md
 
       - name: Image digest
