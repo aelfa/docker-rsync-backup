@@ -76,8 +76,8 @@ jobs:
         uses: peter-evans/dockerhub-description@v2
         with:
           username: ${{ secrets.DOCKER_USER }}
-          password: ${{ secrets.DOCKER_TOKEN }}
-          repository: peterevans/dockerhub-description
+          password: ${{ secrets.DOCKER_PASS }}
+          repository: ${{ secrets.DOCKER_USER }}/${{ env.DOCKERHUB_REPO }}
           readme-filepath: ./README.md
 
       - name: Image digest
@@ -91,7 +91,7 @@ jobs:
 
       - uses: FranzDiebold/github-env-vars-action@v2
       - name: Print environment variables
-        run: |
+        run:  ${DOCKER_IMAGE}
           echo "CI_REPOSITORY=$CI_REPOSITORY"
 
       - name: Prepare GHRC.IO
