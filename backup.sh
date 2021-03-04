@@ -29,6 +29,7 @@ RUNNER_COMMAND="--config /rclone/rclone.conf | tail -n 1 | awk '{print $2}'"
 # Options to pass to rsync
 OPTIONS="--force --ignore-errors --delete \
  --exclude-from=/root/backup_excludes \
+ --exclude-from=/backup_excludes \
  -avzheP --numeric-ids --ignore-times \
  --compress-level=${RSYNC_COMPRESS_LEVEL}"
 
@@ -37,6 +38,7 @@ OPTIONSTAR="--warning=no-file-changed \
   --absolute-names \
   --warning=no-file-removed \
   --exclude-from=/root/backup_excludes \
+  --exclude-from=/backup_excludes \
   --use-compress-program=pigz"
 
 OPTIONSRCLONE="--config /rclone/rclone.conf \
