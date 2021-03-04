@@ -6,6 +6,9 @@ plex/database/Library/Application Support/Plex Media Server/Metadata/*.bif
 plex/database/Library/Application Support/Plex Media Server/Media/*.bif
 plex/database/Library/Logs/Plex Media Server/
 plex/database/Library/Application Support/Plex Media Server/Plug-ins
+plex/database/Library/Logs/
+plex/database/Library/Crash Reports/
+plex/database/Library/Codecs/
 plex/transcoding-temp
 nzbget.log
 radarr/logs
@@ -28,3 +31,8 @@ Transcodes
 *.bif
 *.log
 *.logs
+*.tar
+*.zip
+*.pid
+*.mounted
+plexguide/
