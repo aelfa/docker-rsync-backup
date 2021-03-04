@@ -18,24 +18,25 @@ ENV BACKUPDIR="/home" \
     DISCORD_ICON_OVERRIDE="https://i.imgur.com/KorF8zC.png" \
     DISCORD_NAME_OVERRIDE="BACKUP"
 
-RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community/ >> /etc/apk/repositories && \
-    apk update && apk upgrade && \
-    apk add --no-cache \
-        ca-certificates rsync openssh-client tar wget logrotate \
-        shadow bash bc findutils coreutils openssl \
-        curl libxml2-utils tree pigz tzdata openntpd grep
+RUN \
+  echo "**** install build packages ****" && \
+  apk --quiet --no-cache --no-progress add \
+    curl unzip shadow bash bc findutils coreutils \
+    ca-certificates rsync openssh-client tar wget logrotate \
+    openssl ntpdsec musl libxml2-utils tree pigz tzdata openntpd grep
 
 RUN \
-  curl -O https://downloads.rclone.org/rclone-current-linux-amd64.zip && \
-  unzip -q rclone-current-linux-amd64.zip && \
-  rm -f rclone-current-linux-amd64.zip && \
-  cd rclone-*-linux-amd64 && \
-  cp rclone /usr/bin/
+  wget https://downloads.rclone.org/rclone-current-linux-amd64.zip -O rclone.zip && \
+  unzip -q rclone.zip && \
+  rm -f rclone.zip && \
+  mv rclone-*-linux-amd64/rclone /usr/bin/ && \
+  rm -rf rclone-**
 
 COPY docker-entrypoint.sh /usr/local/bin/
 COPY backup.sh /backup.sh
 ADD backup_excludes /root/backup_excludes
-RUN chmod +x /root/backup_excludes
+RUN chmod a+x /root/backup_excludes
+RUN chmod a+x /backup_excludes
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 
