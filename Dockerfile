@@ -18,9 +18,10 @@ ENV BACKUPDIR="/home" \
     DISCORD_ICON_OVERRIDE="https://i.imgur.com/KorF8zC.png" \
     DISCORD_NAME_OVERRIDE="BACKUP"
 
-RUN \
-  echo "**** install build packages ****" && \
-  apk --quiet --no-cache --no-progress add \
+RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community/ >> /etc/apk/repositories && \
+    apk update && apk upgrade && \
+    echo "**** install build packages ****" && \
+    apk --quiet --no-cache --no-progress add \
     curl unzip shadow bash bc findutils coreutils \
     ca-certificates rsync openssh-client tar wget logrotate \
     openssl ntpdsec musl libxml2-utils tree pigz tzdata openntpd grep
