@@ -18,9 +18,11 @@ ENV BACKUPDIR="/home" \
     DISCORD_ICON_OVERRIDE="https://i.imgur.com/KorF8zC.png" \
     DISCORD_NAME_OVERRIDE="BACKUP"
 
-RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community/ >> /etc/apk/repositories && \
-    apk update && apk upgrade && \
-    apk add --no-cache \
+COPY repositories /etc/apk/repositories
+
+RUN \
+    echo "**** install build packages ****" && \
+    apk --quiet --no-cache --no-progress add \
         ca-certificates rsync openssh-client tar wget logrotate \
         shadow bash bc findutils coreutils openssl \
         curl libxml2-utils tree pigz tzdata openntpd grep
@@ -28,9 +30,10 @@ RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community/ >> /etc/apk/reposi
 RUN \
   curl -O https://downloads.rclone.org/rclone-current-linux-amd64.zip && \
   unzip -q rclone-current-linux-amd64.zip && \
-  rm -f rclone-current-linux-amd64.zip && \
+  rm -rf rclone-current-linux-amd64.zip && \
   cd rclone-*-linux-amd64 && \
-  cp rclone /usr/bin/
+  cp rclone /usr/bin/ && \
+  rm -rf rclone-*-linux-amd64
 
 COPY docker-entrypoint.sh /usr/local/bin/
 COPY backup.sh /backup.sh
