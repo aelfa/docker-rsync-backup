@@ -1,4 +1,4 @@
-# Basic Usage
+# Basic Usage [ Deprecated ]
 
 Basic backup of `/home` to `/mnt/backup_drive`
 
