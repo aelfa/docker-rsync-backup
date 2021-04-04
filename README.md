@@ -1,5 +1,7 @@
 # Basic Usage [ Deprecated ]
 
+# THIS IMAGE IS DEPRECATED.
+
 Basic backup of `/home` to `/mnt/backup_drive`
 
     docker run -d --name rsync-backup \
@@ -121,6 +123,8 @@ examples. Here is a full list of the variables, default values and uses.
 # INFO
 
 ***Deprecated***
+
+# THIS IMAGE IS DEPRECATED.
 
 No updates anymore!!!
 
