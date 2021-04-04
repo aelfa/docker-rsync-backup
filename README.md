@@ -118,10 +118,11 @@ examples. Here is a full list of the variables, default values and uses.
 	   basic is "BACKUP"
 
 
-THIS IS A ***Work In Progress*** 
+# INFO
 
-in the end this means that there could be updates daily to weekly, as well as possible errors or the like,
+***Deprecated***
 
+No updates anymore!!!
 
 # Support
 
