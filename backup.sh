@@ -157,7 +157,7 @@ tar_gz()
 cd ${ARCHIVEROOT}
  for dir_tar in `find . -maxdepth 1 -type d | grep -v "^\.$" `; do
     log ": Tar Backup running for ${dir_tar}"
-    tar ${OPTIONSTAR} -C ${dir_tar} -cvf ${dir_tar}.tar ./ >> ${LOGS}/tar.log
+    tar ${OPTIONSTAR} -C ${dir_tar} -cvf ${dir_tar}.tar.gz ./ >> ${LOGS}/tar.log
     log ": Tar Backup of ${dir_tar} successfull"
  done
 }
@@ -181,7 +181,7 @@ remove_tar()
 # shellcheck disable=SC2164
 # shellcheck disable=SC2006
 cd ${ARCHIVEROOT}
- for tarrm in `find . -maxdepth 1 -type f | grep ".tar" `; do
+ for tarrm in `find . -maxdepth 1 -type f | grep ".tar.gz" `; do
     log ": Remove running for ${tarrm}"
     rm -rf ${tarrm} >> ${LOGS}/removetar.log
     log ": Remove of ${tarrm} successfull"
