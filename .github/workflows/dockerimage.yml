@@ -1,4 +1,4 @@
-name: Publish Releases to Hub
+name: Build Multi Stage Docker Image
 on:
   push:
     branches-ignore:
