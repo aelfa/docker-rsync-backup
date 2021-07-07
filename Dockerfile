@@ -1,4 +1,4 @@
-FROM lsiobase/alpine:3.13
+FROM lsiobase/alpine:3.14-version-52b7b3b1
 #THX TO Johan Swetzén <johan@swetzen.com> for Build up the basic parts
 MAINTAINER MrDoob <fuckoff@all.com>
 
